@@ -130,7 +130,7 @@ class LioLoopView: UIView,UIScrollViewDelegate{
             })
             self.lioScrollView.backgroundColor = UIColor.grayColor()
             imageButton.frame = CGRectMake(CGFloat(index) * self.lioScrollView.frame.width, 0, self.lioScrollView.frame.width, self.lioScrollView.frame.height)
-            imageButton.tag = index
+            self.setButtonsTag(imageButton, withIndex: index)
             imageButton.addTarget(self, action: "imageButtonEvent:", forControlEvents: UIControlEvents.TouchUpInside)
             self.lioScrollView.addSubview(imageButton)
         }
@@ -138,6 +138,18 @@ class LioLoopView: UIView,UIScrollViewDelegate{
         
     }
     
+    
+    func setButtonsTag(imageButton:UIButton,withIndex:NSInteger) ->(){
+        if withIndex == 0 {
+            imageButton.tag = self.urlsArray.count - 2
+        }
+        else if withIndex == self.urlsArray.count-1 {
+            imageButton.tag = 1
+        }
+        else {
+            imageButton.tag = withIndex
+        }
+    }
     
     //重置偏移量
     func resetScrollViewContentOffset (){
@@ -198,6 +210,9 @@ class LioLoopView: UIView,UIScrollViewDelegate{
         if currenIndex == self.urlsArray.count - 1 {
             currenIndex = 0
         }
+        else if currenIndex == 0 {
+            currenIndex = self.urlsArray.count - 2
+        }
        self.pageControl.currentPage = NSInteger(currenIndex-1)
     }
     
@@ -225,18 +240,7 @@ class LioLoopView: UIView,UIScrollViewDelegate{
     
     
     func imageButtonEvent(imageButton:UIButton){
-        var indexOfImage = NSInteger()
-        if imageButton.tag == self.urlsArray.count - 1 {
-            indexOfImage = 1
-        }
-        else if imageButton.tag == 0 {
-            indexOfImage = self.urlsArray.count - 1
-        }
-        else {
-            indexOfImage = imageButton.tag
-        }
-        
-        self.delegate?.lioScrollViewClickAtIndex(indexOfImage)
+        self.delegate?.lioScrollViewClickAtIndex(imageButton.tag)
     }
     
 }
