@@ -1,8 +1,16 @@
 # LioLoopScrollView
 无限轮播视图
 ###使用方法
-第一步 初始化
+#### Cocoapods
 
+```
+platform :ios, "9.0" 
+pod "LioLoopScrollView"
+use_frameworks!
+
+```
+#### 手动
+第一步 初始化
 
 ```
        let lioView = LioLoopView(frame: CGRectMake(0, 20, CGRectGetWidth(self.view.bounds),100))
