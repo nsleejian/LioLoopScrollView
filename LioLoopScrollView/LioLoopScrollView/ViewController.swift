@@ -30,7 +30,6 @@ class ViewController: UIViewController,LioLoopViewDelegate {
                 "http://7xpsn4.com1.z0.glb.clouddn.com/6.png",
             ]
         )
-    
     }
     
     func lioScrollViewClickAtIndex(index: NSInteger) {
