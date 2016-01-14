@@ -20,6 +20,7 @@ class ViewController: UIViewController,LioLoopViewDelegate {
         let lioView = LioLoopView(frame: CGRectMake(0, 20, CGRectGetWidth(self.view.bounds),100))
         self.view.addSubview(lioView)
         lioView.delegate = self
+        //传入图片数组
         lioView.setLioScrollViewImageWithURLsArray(
             [
                 "http://7xpsn4.com1.z0.glb.clouddn.com/1.jpg",
