@@ -1,7 +1,7 @@
 # LioLoopScrollView
 无限轮播视图
 ###使用方法
-#### Cocoapods
+#### CocoaPods
 
 ```
 platform :ios, "9.0" 
